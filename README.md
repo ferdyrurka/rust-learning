@@ -3,6 +3,7 @@
 ## Tasks
 
 * [Hello World](001-helloWorld/main.rs)
+* [Hello Cargo](002-hello-cargo)
 
 ## License
 
