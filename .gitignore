@@ -1,2 +1,5 @@
 .idea
 .vscode
+
+/003-guessing-game/.idea
+/003-guessing-game/target/
