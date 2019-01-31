@@ -13,6 +13,12 @@
 * At least one of the pointers is being used to write to the data.
 * There’s no mechanism being used to synchronize access to the data.
 *
+* as_bytes -> convert String to bytes array
+*
+* &variables[start..end] - get by bytes (example. RUST - get first two chars [0..2] - result RU).
+* &variables[start..=end] - get by bytes -1 byte from first method.
+* https://doc.rust-lang.org/book/img/trpl04-06.svg
+* We can also call to array instead of to String.
 *
 */
 
@@ -53,6 +59,36 @@ fn main() {
     //let s1 = &string_add_var; // no problem
     //let s2 = &string_add_var; // no problem
     //let s3 = &mut string_add_var; // Bug
+
+    println!("******************* Slices *******************");
+
+    let mut s = String::from("Rust is the best");
+
+    first_word(&s);
+
+    s.clear();
+
+    //Word has 4 bytes
+    let get_by_bytes = String::from("RUST");
+    //Or (not in this example)
+    //let get_by_bytes  = ["R", "U", "S", "T"];
+
+    let ru = &get_by_bytes[0..2];
+    // Or
+    // let ru = &get_by_bytes[..2];
+
+    println!("First method: From 0 to 2 bytes in variable get_by_bytes is: {}", ru);
+
+    let st = &get_by_bytes[2..=3];
+    // Or
+    // let st = &get_by_bytes[2..];
+
+
+    println!("Second method: From 2 to 3 bytes in variable get_by_bytes is: {}", st);
+
+    let rust = &get_by_bytes[..];
+
+    println!("All string by slices: {}", rust);
 }
 
 fn copy_fn(s: String) {
@@ -80,4 +116,18 @@ fn add_string(string_add_var: &mut String) {
     string_add_var.push_str("HELLO WORLD");
 
     println!("Value add string is: {}", string_add_var);
+}
+
+fn first_word(s: &String) -> usize {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b'b' {
+            println!("In fn first_word search chars \"b\" in index: {}", i);
+
+            return i;
+        }
+    }
+
+    return s.len();
 }
