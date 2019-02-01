@@ -5,7 +5,7 @@
 * in variables declared struct in this way
 // key:value
 *
-*
+* Variables can not name how function!!!
 *
 *
 *
@@ -15,6 +15,12 @@
 *
 *
 */
+
+#[derive(Debug)]
+struct Triangle {
+    a: f32,
+    h: f32
+}
 
 fn main() {
     //They do not have in identical order.
@@ -54,6 +60,43 @@ fn main() {
     let point: Point = Point(1, 2);
 
     println!("Point value is: x: {}, y: {}", point.0, point.1);
+
+    //First method
+
+    let triangle = Triangle {
+        a: 10.2,
+        h: 5.8
+    };
+
+    println!("Triangle field in first method is: {}", triangle_field(triangle));
+
+    //Second method
+
+    let triangle2= (10.2, 5.3);
+
+    println!("Triangle field in second method is: {}", triangle_field2(triangle2));
+
+    // Bug not convert struct to string
+    //println!("triangle value is: {}", triangle);
+
+    let triangleDebug = Triangle {
+        a: 23.2,
+        h: 56.8
+    };
+
+    // No addition #[derive(Debug)] in up struct Rust compiler not compile project because
+    // this method is only to debug.
+    //
+    // {:?} Result is:
+    // triangle value is: Triangle { a: 23.2, h: 56.8 }
+    //
+    // {:#?} Result is:
+    // triangle value is: Triangle {
+    //    a: 23.2,
+    //    h: 56.8
+    // }
+    //
+    println!("triangle value is: {:#?}", triangleDebug);
 }
 
 fn get_user(username: String) -> User {
@@ -63,6 +106,14 @@ fn get_user(username: String) -> User {
         email: String::from("kontakt@lukaszstaniszewski.pl"),
         active: true
     }
+}
+
+fn triangle_field(triangle: Triangle) -> f32 {
+    0.5 * triangle.a * triangle.h
+}
+
+fn triangle_field2(triangle: (f32, f32)) -> f32 {
+    0.5 * triangle.0 * triangle.1
 }
 
 struct User {
