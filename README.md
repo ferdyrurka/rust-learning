@@ -8,6 +8,7 @@
 * [Common programming concepts](004-common-programming-concepts)
 * [Functions](005-functions-and-control-flow)
 * [Ownership](006-ownership)
+* [Structs](007-structs)
 
 ## License
 
