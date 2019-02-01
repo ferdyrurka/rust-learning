@@ -79,7 +79,7 @@ fn main() {
     // Bug not convert struct to string
     //println!("triangle value is: {}", triangle);
 
-    let triangleDebug = Triangle {
+    let triangle_debug = Triangle {
         a: 23.2,
         h: 56.8
     };
@@ -96,7 +96,7 @@ fn main() {
     //    h: 56.8
     // }
     //
-    println!("triangle value is: {:#?}", triangleDebug);
+    println!("triangle value is: {:#?}", triangle_debug);
 }
 
 fn get_user(username: String) -> User {
