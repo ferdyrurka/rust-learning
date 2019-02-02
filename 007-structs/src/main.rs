@@ -7,12 +7,10 @@
 *
 * Variables can not name how function!!!
 *
+* Call to impl function by ::
 *
-*
-*
-*
-*
-*
+* To create impl must be is created Struct.
+* One Struct can have many impl.
 *
 */
 
@@ -97,6 +95,51 @@ fn main() {
     // }
     //
     println!("triangle value is: {:#?}", triangle_debug);
+
+    println!("************************ impl ************************");
+
+    let user_register: User = User {
+        username: String::from("ferdyrurka"),
+        years: 20,
+        email: String::from("kontakt@lukaszstaniszewski.pl"),
+        active: true
+    };
+
+    user_register.register();
+
+    let user_not_active: User  = User {
+        active: false,
+        ..user_register
+    };
+
+    user_not_active.register();
+
+    let user_register_identical = User {
+        username: String::from("ferdyrurka"),
+        years: 20,
+        email: String::from("kontakt@lukaszstaniszewski.pl"),
+        active: true
+    };
+
+    if user_not_active.identical(&user_register_identical) {
+        println!("user_register_identical and user_not_active is identical!");
+    }
+
+    let user_register_not_identical = User {
+        username: String::from("rurka"),
+        years: 20,
+        email: String::from("kontakt@lukaszstaniszewski.pl"),
+        active: true
+    };
+
+    if user_not_active.identical(&user_register_not_identical) {
+        println!("user_register_not_identical and user_not_active is identical");
+    } else {
+        println!("user_register_not_identical and user_not_active is not identical!");
+    }
+
+    //Call to impl function
+    println!("Square area is: {}", Square::area(3.4));
 }
 
 fn get_user(username: String) -> User {
@@ -121,6 +164,38 @@ struct User {
     email: String,
     years: i16,
     active: bool,
+}
+
+impl User {
+    fn register(&self) -> bool {
+        if !self.active {
+            println!("User is not active!");
+
+            return false;
+        }
+
+        println!("Save user by data: Username: {}, Email: {}, Years: {}",
+                 self.username, self.email, self.years
+        );
+
+        return true;
+    }
+
+    //fn set_active(&mut self) - mut variable
+
+    fn identical(&self, user_second: &User) -> bool {
+        self.username == user_second.username &&
+            self.email == user_second.email &&
+            self.years == user_second.years
+    }
+}
+
+struct Square(u32);
+
+impl Square {
+    fn area(a: f32) -> f32 {
+        a * a
+    }
 }
 
 struct Point(isize, isize);
