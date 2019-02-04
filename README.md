@@ -9,6 +9,7 @@
 * [Functions](005-functions-and-control-flow)
 * [Ownership](006-ownership)
 * [Structs](007-structs)
+* [Enums and pattern matching](008-enums-and-pattern-matching)
 
 ## License
 
