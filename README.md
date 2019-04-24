@@ -10,6 +10,8 @@
 * [Ownership](006-ownership)
 * [Structs](007-structs)
 * [Enums and pattern matching](008-enums-and-pattern-matching)
+* [OOP Features](009-oop-features)
+* [Packages crates modules](010-packages-crates-modules)
 
 ## License
 
