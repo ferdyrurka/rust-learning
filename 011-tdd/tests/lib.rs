@@ -17,4 +17,12 @@ mod tests {
         // panic!("Make this test fail");
         assert!(true);
     }
+
+    #[test]
+    #[should_panic(excepted = "Make this test fail")]
+    fn it_should_panic() {
+        // failed test by:
+        // panic!("failed message");
+        panic!("Make this test fail");
+    }
 }
