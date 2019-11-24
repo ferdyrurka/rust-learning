@@ -1,0 +1,9 @@
+[package]
+name = "tera_actix_rust"
+version = "0.1.0"
+authors = ["Ferdyrurka <kontakt@lukaszstaniszewski.pl>"]
+edition = "2018"
+
+[dependencies]
+actix-web = "1.0.9"
+tera = "0.11.20"

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    {% block body %}{% endblock body %}
+</body>
+</html>
