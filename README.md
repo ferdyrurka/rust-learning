@@ -12,6 +12,8 @@
 * [Enums and pattern matching](008-enums-and-pattern-matching)
 * [OOP Features](009-oop-features)
 * [Packages crates modules](010-packages-crates-modules)
+* [TDD](011-tdd)
+* [Actix tera](012-actix-tera)
 
 ## License
 

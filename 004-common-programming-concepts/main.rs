@@ -10,6 +10,15 @@
 * 128-bit	i128	u128
 * arch	    isize	usize (64 or 32 bit, depends on architecture architecture OS)
 *
+* Differences u to i
+* for u:
+*       assert_eq!(u64::MAX, 18446744073709551615);
+*       assert_eq!(u64::MIN, 0);
+*
+* for i:
+*       assert_eq!(i64::MAX, 9223372036854775807);
+*       assert_eq!(i64::MIN, -9223372036854775808);
+*
 * Type variables (float\double) declarated by to char 'f[byte]':
 * Identical to Integer
 *
