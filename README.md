@@ -15,10 +15,6 @@
 * [TDD](011-tdd)
 * [Actix tera](012-actix-tera)
 
-## License
-
-* OPEN GPL V3 or later
-
 ## Authors
 
 * [Łukasz Staniszewski](http://lukaszstaniszewski.pl) < kontakt@lukaszstaniszewski.pl >
